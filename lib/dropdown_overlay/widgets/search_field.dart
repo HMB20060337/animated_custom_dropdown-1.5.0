@@ -1,7 +1,6 @@
 part of '../../custom_dropdown.dart';
 
 class _SearchField extends StatefulWidget {
-  final String searchHint;
   final List<String> items;
   final ValueChanged<List<String>> onSearchedItems;
   final _SearchType? searchType;
@@ -14,8 +13,7 @@ class _SearchField extends StatefulWidget {
     Key? key,
     required this.items,
     required this.onSearchedItems,
-  })  : searchHint = '',
-        searchType = _SearchType.onListData,
+  })  : searchType = _SearchType.onListData,
         futureRequest = null,
         futureRequestDelay = null,
         onFutureRequestLoading = null,
@@ -30,8 +28,7 @@ class _SearchField extends StatefulWidget {
     required this.futureRequestDelay,
     required this.onFutureRequestLoading,
     required this.mayFoundResult,
-  })  : searchHint = '',
-        searchType = _SearchType.onRequestData,
+  })  : searchType = _SearchType.onRequestData,
         super(key: key);
 
   @override
@@ -125,7 +122,7 @@ class _SearchFieldState extends State<_SearchField> {
         },
         controller: searchCtrl,
         decoration: InputDecoration(
-          hintText: widget.searchHint,
+          hintText: 'Arama',
           filled: true,
           fillColor: Colors.grey[50],
           constraints: const BoxConstraints.tightFor(height: 40),

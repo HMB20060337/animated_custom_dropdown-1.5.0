@@ -155,7 +155,7 @@ class _DropdownOverlayState extends State<_DropdownOverlay> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 12.0),
                   child: Text(
-                    'No result found.',
+                    'Sonuç Bulunamadı',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
