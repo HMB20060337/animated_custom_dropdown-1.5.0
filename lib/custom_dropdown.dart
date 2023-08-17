@@ -51,10 +51,13 @@ class CustomDropdown extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   final _ListItemBuilder? listItemBuilder;
 
+  final EdgeInsets? contentPadding;
+
   CustomDropdown({
     Key? key,
     required this.items,
     required this.controller,
+    this.contentPadding,
     this.hintText,
     this.hintStyle,
     this.selectedStyle,
@@ -91,6 +94,7 @@ class CustomDropdown extends StatefulWidget {
     Key? key,
     required this.items,
     required this.controller,
+    this.contentPadding,
     this.hintText,
     this.hintStyle,
     this.listItemBuilder,
@@ -127,6 +131,7 @@ class CustomDropdown extends StatefulWidget {
     Key? key,
     required this.controller,
     required this.futureRequest,
+    this.contentPadding,
     this.futureRequestDelay,
     this.items,
     this.hintText,
@@ -204,6 +209,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         return CompositedTransformTarget(
           link: layerLink,
           child: _DropDownField(
+            contentPadding: widget.contentPadding,
             controller: widget.controller,
             onTap: showCallback,
             style: selectedStyle,

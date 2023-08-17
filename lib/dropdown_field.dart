@@ -1,16 +1,11 @@
 part of 'custom_dropdown.dart';
 
-const _textFieldIcon = Icon(
-  Icons.keyboard_arrow_down_rounded,
-  color: Colors.black,
-  size: 20,
-);
-const _contentPadding = EdgeInsets.only(left: 16);
 const _noTextStyle = TextStyle(height: 0);
 const _borderSide = BorderSide(color: Colors.transparent);
 const _errorBorderSide = BorderSide(color: Colors.redAccent, width: 2);
 
 class _DropDownField extends StatefulWidget {
+  final EdgeInsets? contentPadding;
   final TextEditingController controller;
   final VoidCallback onTap;
   final Function(String)? onChanged;
@@ -29,6 +24,7 @@ class _DropDownField extends StatefulWidget {
     Key? key,
     required this.controller,
     required this.onTap,
+    this.contentPadding,
     this.onChanged,
     this.suffixIcon,
     this.hintText,
@@ -108,8 +104,9 @@ class _DropDownFieldState extends State<_DropDownField> {
       style: widget.style,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: _contentPadding,
-        suffixIcon: widget.suffixIcon ?? _textFieldIcon,
+        contentPadding:
+            widget.contentPadding ?? const EdgeInsets.only(left: 16),
+        suffixIcon: widget.suffixIcon,
         hintText: widget.hintText,
         hintStyle: widget.hintStyle,
         fillColor: widget.fillColor,
